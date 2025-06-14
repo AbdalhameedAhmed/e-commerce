@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About
+{% endblock title %}
+
+{% block content %}
+  {% include 'components/navbar.html' with active_item='about' %}
+
+   <section class="about " id="about">
+        <div class="container">
+            <div class="row align-items-center" style="height: calc(100vh - 66px);">
+                <div class="col-md-6">
+                    <div class="img">
+                        <img src="{% static 'images/about_img.png' %}" alt="About section image" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-6 text-start my-3">
+                    <p class="fs-1">Premium <span> Pet Food </span>Manufacturer</p>
+                    <p>At **[Your Pet Shop Name]**, our mission is simple: to provide pet owners with the highest quality food, supplies, and accessories, ensuring every pet lives a vibrant, healthy, and joyful life. We believe that pets are family, and they deserve nothing but the best.</p>
+                <p>We carefully select our products, focusing on natural ingredients, sustainable practices, and items that truly benefit your pet's well-being. From premium nutrition to engaging toys and comfortable bedding, we've got everything your furry, feathered, or scaled friend needs.</p>
+                    <a href="{%url 'index'%}" class="button ">read more</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+      
+  {% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Contact
+{% endblock title %}
+
+{% block content %}
+  {% include 'components/navbar.html' with active_item='contact' %}
+  <section class="contact py-5" id="contact">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 my-4 p-0">
+                    <div class="img">
+                        <img src="{% static 'images/contact_img.png' %}" alt="woman photo" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-6 p-5">
+                    <p class="text-sm-center text-md-start fs-1">Contact Us</p>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control cust" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="password" class="form-control cust" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="password" class="form-control cust" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">your number</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea class="form-control cust" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingPassword">your number</label>
+                      </div>
+                      <a href="" class="button w-100 text-center my-4">Send Message</a>
+                </div>
+            </div>
+        </div>
+    </section>
+  {% endblock content %}
