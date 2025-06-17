@@ -34,7 +34,15 @@
                   {%endif%}
                   ">Contact us</a>
               </li>
-             
+              {%if user%}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'productAdmin' %}" style="
+                  {% if active_item == 'contact' %}
+                  color: #e67e22;
+                  {%endif%}
+                  ">Dashboard</a>
+              </li>
+             {%endif%}
             </ul>
           </div>
           <div class="btn-group ms-auto me-3 order-1 cart position-relative">

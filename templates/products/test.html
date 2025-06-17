@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Our Products</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex-shrink-0">
+            <a class="flex items-center text-orange-500" href="#">
+              <span class="material-icons text-3xl">pets</span>
+              <span class="ml-2 text-xl font-semibold text-gray-800"
+                >PetPal</span
+              >
+            </a>
+          </div>
+          <nav class="hidden md:flex space-x-4">
+            <a
+              class="text-gray-600 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium"
+              href="#"
+              >Home</a
+            >
+            <a
+              aria-current="page"
+              class="text-orange-500 px-3 py-2 rounded-md text-sm font-medium"
+              href="#"
+              >Products</a
+            >
+            <a
+              class="text-gray-600 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium"
+              href="#"
+              >About</a
+            >
+            <a
+              class="text-gray-600 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium"
+              href="#"
+              >Contact us</a
+            >
+            <a
+              class="text-gray-600 hover:text-orange-500 px-3 py-2 rounded-md text-sm font-medium"
+              href="#"
+              >Dashboard</a
+            >
+          </nav>
+          <div class="flex items-center">
+            <a class="relative text-gray-600 hover:text-orange-500" href="#">
+              <span class="material-icons">shopping_cart</span>
+              <span
+                class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+          </div>
+          <div class="md:hidden">
+            <button
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+              class="text-gray-600 hover:text-orange-500 focus:outline-none focus:text-orange-500"
+              type="button"
+            >
+              <span class="sr-only">Open main menu</span>
+              <span class="material-icons">menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="md:hidden hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            class="text-gray-600 hover:bg-orange-50 hover:text-orange-500 block px-3 py-2 rounded-md text-base font-medium"
+            href="#"
+            >Home</a
+          >
+          <a
+            aria-current="page"
+            class="text-orange-500 bg-orange-50 block px-3 py-2 rounded-md text-base font-medium"
+            href="#"
+            >Products</a
+          >
+          <a
+            class="text-gray-600 hover:bg-orange-50 hover:text-orange-500 block px-3 py-2 rounded-md text-base font-medium"
+            href="#"
+            >About</a
+          >
+          <a
+            class="text-gray-600 hover:bg-orange-50 hover:text-orange-500 block px-3 py-2 rounded-md text-base font-medium"
+            href="#"
+            >Contact us</a
+          >
+          <a
+            class="text-gray-600 hover:bg-orange-50 hover:text-orange-500 block px-3 py-2 rounded-md text-base font-medium"
+            href="#"
+            >Dashboard</a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-10">
+        Our <span class="text-orange-500">Products</span>
+      </h1>
+      <div class="mb-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow">
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+          >
+            <div class="flex-1">
+              <h3 class="text-lg font-medium text-gray-600 mb-2">Category</h3>
+              <select
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 text-gray-700"
+                id="filter-category"
+              >
+                <option value="">All Categories</option>
+                <option value="dog-food">Dog Food</option>
+                <option value="cat-food">Cat Food</option>
+                <option value="treats">Treats</option>
+                <option value="toys">Toys</option>
+              </select>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-medium text-gray-600 mb-2">Brand</h3>
+              <select
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50 text-gray-700"
+                id="filter-brand"
+              >
+                <option value="">All Brands</option>
+                <option value="brand-a">Brand A</option>
+                <option value="brand-b">Brand B</option>
+              </select>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-medium text-gray-600 mb-2">
+                Price Range
+              </h3>
+              <input
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange-500"
+                max="100"
+                min="0"
+                type="range"
+                value="50"
+              />
+              <div class="flex justify-between text-sm text-gray-600 mt-1">
+                <span>$0</span>
+                <span>$100</span>
+              </div>
+            </div>
+            <div class="md:ml-6">
+              <button
+                class="mt-4 md:mt-0 w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-150"
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105"
+          >
+            <div class="p-4 flex justify-center items-center h-64">
+              <img
+                alt="Beef Dog Food"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx7hyjiCa2OBB-wQwsJPpzkKE_rXmWuzJxSdo4hm38SCfjSH_aaHTAT8l2joGA9bSRCQ_O2Z-v1L-6F2T-eHaGHVXYWT8HzJoO0YK8cKWFDfpgDCo4lUbpJJBQ9Z3gub3dF_sbebBWbfZ6c5k9TdNO-0QDHkp89a2NO3Dss8W-tmz6O38t0IJFwH2MpHsw8NpT1BDI_1LCvx_TyBLi4g6jTt4uXJfvECogB_GCzWejE1vlxfkHr8HW9SwEdGmadF6ZDlI2ULX7tsE"
+              />
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                beef dog food
+              </h3>
+              <p class="text-orange-500 font-medium">$12.00</p>
+              <button
+                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105"
+          >
+            <div class="p-4 flex justify-center items-center h-64">
+              <img
+                alt="Salmon Cat Food"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcWyKPqk0Cx7bU3sq78rntxfXPGQkWJn_2DaiEd-9J4M94NuU_8o7NnxCfag2HoV-s4sdzp3-mnI-gDOGYHuqehnbZNldS2nXJUFf3WKKpeLNAbCUsfNXvQ6c74gEP10mg_HpQZfvYFThSEo5o9pDCJsUYKD-VnNti17DBFc7_03KF9DJVGPABMzxSbVy27iAM1JFGvvSU-Udu53a4Pnwg7-LQ4sZBS3D0j2dvqd5_D8va_lErjLM4V34avdj2SrG4ltiRXUtVUAw"
+              />
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                salmon cat food
+              </h3>
+              <p class="text-orange-500 font-medium">$13.50</p>
+              <button
+                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105"
+          >
+            <div class="p-4 flex justify-center items-center h-64">
+              <img
+                alt="Venison Dog Food"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy2h1zN4q4crcozxJfoGJs-uzDFO5ldKEeCiaFLBapUQ-K7Vk2HCwfKLhlTXTJPRx3NPvp2YPN6c3tnEC8e19DvKsT52U1M6RTZonR7KmNhLxl8eqEDLmCYiGAtNy8SWalwrrSk-5_AWNpRYBInsRDsfqe_hvT5LZ0u-QRlvSZHwtKBnVwdBYoy-x_YYUTV8ivyQWcvo7MvjFo6qpS9UlLQHNVHJ-u5-nnScmijdjTfi6nUJaBOVVnhn7OagTAlQIB209BBBpTAC4"
+              />
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                venison dog food
+              </h3>
+              <p class="text-orange-500 font-medium">$15.00</p>
+              <button
+                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105"
+          >
+            <div class="p-4 flex justify-center items-center h-64">
+              <img
+                alt="Chicken Flavored Treats"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfzRwFWMV6Oz21VP08XuiNOsau9dq_977vQdvx4EG5M1clvRw7qnD2LwGfE1HAgFCQwGnPcOjjrSlwhp6kynTUugZetVavJAV2yXKebNr5e6qSn2gAqEC7etK_2TVcCsPEHErI1qvlYURX0PoVcrwoXVCM1-1AFdijhrjMZMl8TRHT-WtTFd5ER6oEHF6aZ29O2-Bb4pMFu0BPj7fgORSuNRRxVsf9xQiKORochaWIA98Qynv7AD2bKf0CI5DH5DjO5PtXP86-hcc"
+              />
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                Chicken Treats
+              </h3>
+              <p class="text-orange-500 font-medium">$9.99</p>
+              <button
+                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105"
+          >
+            <div class="p-4 flex justify-center items-center h-64">
+              <img
+                alt="Interactive Dog Toy"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSDyYyQ3qVapLm_cw5SdeSzcTO5wedn9t7ahXwKaVKPDXB_bnX_GnmiszFEfnZdiM0c-s4GroHtosGLBzT9AOjeJAjfNfE_N48uooCH8LsVCk6FIeyGF7e4lKUoQUv5ufWsSgi34vcDW37EllMVOdeOex8udTzEU4EjVBb9aRSRKRG4Y9XlbSc0DfnohxifM4Z4_xciwrbScCycb655BO1H6ztYNjwrxHfsIlkaBmPgtOULKJ4JT9_aRunH3x_kkewgHXb54mWYK0"
+              />
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                Interactive Toy
+              </h3>
+              <p class="text-orange-500 font-medium">$18.75</p>
+              <button
+                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-gray-50 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105"
+          >
+            <div class="p-4 flex justify-center items-center h-64">
+              <img
+                alt="Grain-Free Cat Food"
+                class="max-h-full max-w-full object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo6dAVk5Cr0oL766y7sbbwpDFH4TKSb9DyJzyz-4XhVDy56zUKn9TlGNEnUYtVaHI9Huitt2bAZCCFV6cyME6v0-fwHMmMvqqV4FAuHBEcVSLevRJIv1dxxYWZXBD8KL6casFNmCgwxgG7-Xg0-qlMK-bo1wsRV-eVXJO8gYKFhDVw4blx7O-SoHWrLp5B_V-XOH7u_boSPmgfHmTiy1xoXZEkYIQiQAqut7OVHfcSLGN4HELhp_M1B185EXeMAAWvZW8sbxD5j9A"
+              />
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">
+                Grain-Free Cat Food
+              </h3>
+              <p class="text-orange-500 font-medium">$22.50</p>
+              <button
+                class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-150"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 flex justify-center items-center space-x-2">
+          <button
+            class="p-2 rounded-md hover:bg-orange-100 text-gray-500 hover:text-orange-500 transition duration-150"
+            disabled=""
+          >
+            <span class="material-icons">chevron_left</span>
+          </button>
+          <button
+            class="px-4 py-2 rounded-md bg-orange-500 text-white text-sm font-medium"
+          >
+            1
+          </button>
+          <button
+            class="px-4 py-2 rounded-md hover:bg-orange-100 text-gray-700 hover:text-orange-500 text-sm font-medium transition duration-150"
+          >
+            2
+          </button>
+          <button
+            class="px-4 py-2 rounded-md hover:bg-orange-100 text-gray-700 hover:text-orange-500 text-sm font-medium transition duration-150"
+          >
+            3
+          </button>
+          <span class="text-gray-500">...</span>
+          <button
+            class="px-4 py-2 rounded-md hover:bg-orange-100 text-gray-700 hover:text-orange-500 text-sm font-medium transition duration-150"
+          >
+            10
+          </button>
+          <button
+            class="p-2 rounded-md hover:bg-orange-100 text-gray-500 hover:text-orange-500 transition duration-150"
+          >
+            <span class="material-icons">chevron_right</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-gray-800 text-white mt-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">PetPal</h3>
+            <p class="text-gray-400">
+              Your one-stop shop for all pet needs. We provide high-quality
+              food, toys, and accessories for your furry friends.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a class="text-gray-400 hover:text-orange-400" href="#">Home</a>
+              </li>
+              <li>
+                <a class="text-gray-400 hover:text-orange-400" href="#"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a class="text-gray-400 hover:text-orange-400" href="#"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a class="text-gray-400 hover:text-orange-400" href="#"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+            <p class="text-gray-400">123 Pet Street, Animal City, WR 12345</p>
+            <p class="text-gray-400">Email: info@petpal.com</p>
+            <p class="text-gray-400">Phone: (123) 456-7890</p>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-gray-700 pt-8 text-center">
+          <p class="text-gray-500">© 2024 PetPal. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const mobileMenuButton = document.querySelector(
+        '[aria-controls="mobile-menu"]'
+      );
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenuButton.addEventListener("click", () => {
+        const expanded =
+          mobileMenuButton.getAttribute("aria-expanded") === "true" || false;
+        mobileMenuButton.setAttribute("aria-expanded", !expanded);
+        mobileMenu.classList.toggle("hidden");
+        mobileMenuButton.querySelector(".material-icons").textContent =
+          !expanded ? "close" : "menu";
+      });
+    </script>
+  </body>
+</html>

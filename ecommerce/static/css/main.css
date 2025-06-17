@@ -183,6 +183,7 @@ span{
 }
 .product .icons svg {
     cursor: pointer;
+    color: black;
 }
 .product .icons svg:hover {
     color: white;
