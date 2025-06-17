@@ -2,6 +2,25 @@
     --orange-color:#e67e22;
     --black-color:#130f40;
     --cart-num:"0" ;
+     --orange: #fd7e14;
+    --orange-dark: #e67312;
+}
+
+
+.text-orange {
+    color: var(--orange) !important;
+}
+
+.bg-orange {
+    background-color: var(--orange) !important;
+}
+
+.border-orange {
+    border-color: var(--orange) !important;
+}
+
+.page-link.text-orange:hover {
+    color: var(--orange-dark) !important;
 }
 body {
     overflow-x: hidden;
@@ -266,6 +285,33 @@ span{
 }
 footer {
     background-image: url(../images/footer_background.jpg);
+}
+
+/* Custom orange focus style */
+.form-select:focus, .form-control:focus {
+  border-color: #fd7e14;
+  box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
+}
+
+/* Orange button */
+.btn-orange {
+  background-color: #fd7e14;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-orange:hover {
+  background-color: #e67312;
+}
+
+/* Orange range slider */
+input[type="range"]::-webkit-slider-thumb {
+  background: #fd7e14;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #fd7e14;
 }
 @keyframes flash {
     0%{

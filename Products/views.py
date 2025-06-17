@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 # Create your views here.
 from django.contrib import messages
 from django.db import transaction
+import pprint
 
 def admin (request):
     return render(request,"products/admin.html")
@@ -14,6 +15,8 @@ class GetProductsForProductsPage(ListView):
     model=Product
     template_name="products/products.html"
     context_object_name="products"
+    paginate_by = 1
+ 
 
 class GetProductsForDashboardPage(ListView):
     model=Product
