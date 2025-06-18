@@ -24,6 +24,3 @@ urlpatterns = [
     path('',include("Home.urls")),
     path('products/',include("Products.urls")),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
-
-print(static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT))
-print(urlpatterns)

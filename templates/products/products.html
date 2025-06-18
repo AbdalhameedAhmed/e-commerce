@@ -5,71 +5,79 @@
 <section class="product py-3" id="product">
   <div class="container">
         <h2 class="fs-1 text-center mb-4">Our <span> Products</span></h2>
-
-
-      <div class="mb-5">
-             <div class="bg-light p-4 rounded shadow-sm">
-                 <div class="row g-3 align-items-end">
-      <!-- Category Filter -->
-                        <div class="col-md-3">
-                            <label class="form-label text-muted mb-1">Category</label>
-                            <select class="form-select" id="filter-category">
-                            <option value="">All Categories</option>
-                            <option value="dog-food">Dog Food</option>
-                            <option value="cat-food">Cat Food</option>
-                            <option value="treats">Treats</option>
-                            <option value="toys">Toys</option>
-                            </select>
-                        </div>
-
-      <!-- Items per Page -->
-                        <div class="col-md-3">
-                            <label class="form-label text-muted mb-1">Items per page</label>
-                            <select class="form-select" id="filter-brand">
-                            <option value="">All Brands</option>
-                            <option value="brand-a">Brand A</option>
-                            <option value="brand-b">Brand B</option>
-                            </select>
-                        </div>
-
-      <!-- Price Range -->
-                        <div class="col-md-3">
-                            <label class="form-label text-muted mb-1">Price Range</label>
-                            <input 
-                            type="range" 
-                            class="form-range" 
-                            min="0" 
-                            max="100" 
-                            value="50"
-                            
-                            >
-                            <div class="d-flex justify-content-between small text-muted mt-1">
-                            <span>$0</span>
-                            <span>$100</span>
-                            </div>
-                        </div>
-
-      <!-- Apply Button -->
-                    <div class="col-md-3">
-                        <button 
-                        class="btn w-100" 
-                        
-                        onmouseover="this.style.backgroundColor='#e67312'" 
-                        onmouseout="this.style.backgroundColor='#fd7e14'"
-                        >
-                        Apply
-                        </button>
-                    </div>
-    </div>
-  </div>
+<div class="position-relative w-100 m-auto pb-3" style="max-width: 32rem;">
+    <form method="get" class="w-100">
+  <div class="input-group d-flex">
+        <input 
+        class="form-control  focus-primary" 
+        type="text"
+        name="search"
+        value="{{current_filters.search_query}}" 
+        placeholder="Search products..."
+        />
+        <button 
+        type="submit"
+        class="btn" 
+        style="background:#e67312;color:white"
+        onmouseover="this.style.backgroundColor='#e67312'" 
+        onmouseout="this.style.backgroundColor='#fd7e14'"
+        >
+        Apply
+    </button>
 </div>
+</form>
+</div>
+       <form method="get" id="category-filter">
+
+            <div class="mb-5">
+                   <div class="bg-light p-4 rounded shadow-sm">
+                       <div class="row g-3 align-items-end">
+                            <!-- Category Filter -->
+                              <div class="col-md-5">
+                                  <label class="form-label text-muted mb-1">Category</label>
+                                  <select name="category" class="form-select" id="filter-category">
+                                  <option value="">All Categories</option>
+                                  {%for category in categories%}
+                                  <option value="{{category.name}}" {% if category.name == current_filters.category_query %}selected{% endif %}>{{category.name}}</option>
+                                  {%endfor%}
+                                  </select>
+                              </div>
+      
+                              <!-- Items per Page -->
+                              <div class="col-md-5">
+                                  <label class="form-label text-muted mb-1">Items per page</label>
+                                  <select name="items" class="form-select" id="filter-brand">
+                                  <option value="3" {% if current_filters.items_query == 3 %} selected {% endif %}>Three items</option>
+                                  <option value="4" {% if current_filters.items_query == 4 %} selected {% endif %}>Four items</option>
+                                  <option value="5" {% if current_filters.items_query == 5 %} selected {% endif %}>Five items</option>
+                                  </select>
+                              </div>
+                                <input type="hidden" name="search" value="{{current_search}}">
+                               <!-- Apply Button -->
+                              <div class="col-md-2">
+                                  <button 
+                                  type="submit"
+                                  class="btn w-100" 
+                                  style="background:#e67312;color:white"
+                                  onmouseover="this.style.backgroundColor='#e67312'" 
+                                  onmouseout="this.style.backgroundColor='#fd7e14'"
+                                  >
+                                  Apply
+                                  </button>
+                              </div>
+                         </div>
+                  </div>
+              </div>
+        </form>
+    
+
 
 
     <div class="row">
       {% for product in products%}
 
-      <div class="col-md-6 text-center box my-3 col-lg-4 prod">
-        <div class="img overflow-hidden mb-3 position-relative mx-auto w-100">
+      <div class="col-md-6 text-center box my-3 col-lg-4 prod d-flex flex-column">
+        <div class="img overflow-hidden mb-3 position-relative mx-auto w-100" style="flex-grow:1">
           <div class="icons position-absolute d-flex flex-column gap-3">
             <div class="icon">
               <svg
@@ -132,7 +140,8 @@
               </svg>
             </a>
           </div>
-          <img src="{{product.image.url}}" alt="" class="w-100 img-fluid" />
+          
+          <img src="{{product.image.url}}" alt="" class="w-100 img-fluid h-100" />
         </div>
         <p class="fs-2 mb-1">{{product.name}}</p>
         <span class="fs-5">${{product.price}}</span>
@@ -147,7 +156,7 @@
     <!-- Previous Button -->
     <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
       {% if page_obj.has_previous %}
-        <a class="page-link text-orange" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+        <a class="page-link text-orange" href="?page={{ page_obj.previous_page_number }}&search={{current_filters.search_query}}&items={{current_filters.items_query}}&category={{current_filters.category_query}}" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       {% else %}
@@ -164,7 +173,7 @@
       {% else %}
         {% if num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' or num == 1 or num == page_obj.paginator.num_pages %}
           <li class="page-item">
-            <a class="page-link text-orange" href="?page={{ num }}">{% if num == 1 %}{{ num }}{% elif num == page_obj.paginator.num_pages %}{{ num }}{% else %}{{ num }}{% endif %}</a>
+            <a class="page-link text-orange" href="?page={{ num }}&search={{current_filters.search_query}}&items={{current_filters.items_query}}&category={{current_filters.category_query}}">{% if num == 1 %}{{ num }}{% elif num == page_obj.paginator.num_pages %}{{ num }}{% else %}{{ num }}{% endif %}</a>
           </li>
         {% elif num == page_obj.number|add:'-3' or num == page_obj.number|add:'3' %}
           <li class="page-item disabled">
@@ -177,7 +186,7 @@
     <!-- Next Button -->
     <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
       {% if page_obj.has_next %}
-        <a class="page-link text-orange" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+        <a class="page-link text-orange" href="?page={{ page_obj.next_page_number }}&search={{current_filters.search_query}}&items={{current_filters.items_query}}&category={{current_filters.category_query}}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       {% else %}
@@ -187,7 +196,7 @@
   </ul>
 </nav>
 
-
+</div>
 </section>
 
 
