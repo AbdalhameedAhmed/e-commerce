@@ -1,0 +1,265 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Dashboard - Pet Shop</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      :root {
+        --nav-link-hover: #f97316;
+        --nav-link-active: #ea580c;
+      }
+      .sidebar-link:hover {
+        background-color: var(--nav-link-hover);
+        color: white;
+      }
+      .sidebar-link.active {
+        background-color: var(--nav-link-active);
+        color: white;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="flex flex-col lg:flex-row min-h-screen">
+      <button
+        class="lg:hidden p-4 bg-gray-800 text-white fixed top-0 left-0 z-30"
+        id="mobileMenuButton"
+      >
+        <span class="material-icons">menu</span>
+      </button>
+      <aside
+        class="w-64 bg-gray-800 text-white flex-col fixed inset-y-0 left-0 z-20 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out lg:flex"
+        id="sidebar"
+      >
+        <div class="p-6 flex items-center border-b border-gray-700">
+          <span class="material-icons text-orange-500 mr-3 text-3xl">pets</span>
+          <span class="text-xl font-semibold">Pet Shop Admin</span>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-2">
+          <a
+            class="sidebar-link flex items-center py-2.5 px-4 rounded-md transition duration-200 "
+            href="{% url 'productAdmin' %}"
+          >
+            <span class="material-icons mr-3">inventory_2</span> Products
+          </a>
+          <a
+            class="sidebar-link flex items-center py-2.5 px-4 rounded-md transition duration-200 active"
+            href="{%url "categories"%}"
+          >
+            <span class="material-icons mr-3">class</span> Categories
+          </a>
+          <a
+            class="sidebar-link flex items-center py-2.5 px-4 rounded-md transition duration-200"
+            href="#"
+          >
+            <span class="material-icons mr-3">people</span> Customers
+          </a>
+          <a
+            class="sidebar-link flex items-center py-2.5 px-4 rounded-md transition duration-200"
+            href="#"
+          >
+            <span class="material-icons mr-3">bar_chart</span> Analytics
+          </a>
+          <a
+            class="sidebar-link flex items-center py-2.5 px-4 rounded-md transition duration-200"
+            href="#"
+          >
+            <span class="material-icons mr-3">settings</span> Settings
+          </a>
+        </nav>
+        <div class="p-4 border-t border-gray-700">
+          <button
+            class="w-full flex items-center py-2.5 px-4 rounded-md hover:bg-gray-700 transition duration-200"
+          >
+            <span class="material-icons mr-3">logout</span> Logout
+          </button>
+        </div>
+      </aside>
+      <div class="flex-1 flex flex-col lg:ml-64 pt-16 lg:pt-0">
+        <main class="flex-1 container mx-auto px-4 sm:px-6 py-8">
+          <div
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8"
+          >
+            <h2
+              class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 sm:mb-0"
+            >
+              Delete Product
+            </h2>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            
+            <form class="space-y-6" method="post" >
+              {% csrf_token %} 
+                <p class="text-xl text-red-500">Are you sure you want to delete this Category?</p>
+              <div class="pt-4 flex justify-end space-x-3">
+                <a
+                  class="px-6 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                  href="{% url 'categories' %}"
+                >
+                  Cancel
+                </a>
+                <button
+                  class="px-6 py-2.5 bg-red-500 text-white rounded-lg text-sm font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                  type="submit"
+                >
+                  Delete Category
+                </button>
+              </div>
+            </form>
+          </div>
+        </main>
+        <footer class="bg-gray-200 text-gray-600 py-6 mt-auto">
+          <div class="container mx-auto px-6 text-center">
+            <p>© 2024 Pet Shop. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+              <a class="text-gray-500 hover:text-orange-500" href="#"
+                ><span class="material-icons">facebook</span></a
+              >
+              <a class="text-gray-500 hover:text-orange-500" href="#">
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  ></path>
+                </svg>
+              </a>
+              <a class="text-gray-500 hover:text-orange-500" href="#">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                  <path
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                  <path
+                    d="M12 16a4.2 4.2 0 004.2-4.2H7.8A4.2 4.2 0 0012 16z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    {% comment %}
+    <script>
+      const addProductBtn = document.getElementById("addProductBtn");
+      const productModal = document.getElementById("productModal");
+      const cancelModalBtn = document.getElementById("cancelModalBtn");
+      const saveProductBtn = document.getElementById("saveProductBtn");
+      const modalTitleText = document.getElementById("modal-title-text");
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const sidebar = document.getElementById("sidebar");
+      function openModal(mode = "add", product = null) {
+        modalTitleText.textContent =
+          mode === "add" ? "Add New Product" : "Edit Product";
+        if (mode === "edit" && product) {
+          document.getElementById("productName").value = product.name;
+          document.getElementById("productCategory").value = product.category;
+          document.getElementById("productPrice").value = product.price;
+          document.getElementById("productImage").value = product.image;
+          document.getElementById("productDescription").value =
+            product.description || "";
+        } else {
+          document.getElementById("productName").value = "";
+          document.getElementById("productCategory").value = "Dog Food";
+          document.getElementById("productPrice").value = "";
+          document.getElementById("productImage").value = "";
+          document.getElementById("productDescription").value = "";
+        }
+        productModal.classList.remove("hidden");
+      }
+      function closeModal() {
+        productModal.classList.add("hidden");
+      }
+      addProductBtn.addEventListener("click", () => openModal("add"));
+      cancelModalBtn.addEventListener("click", closeModal);
+      saveProductBtn.addEventListener("click", () => {
+        console.log("Saving product...");
+        closeModal();
+      });
+      document.querySelectorAll(".text-indigo-600").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const row = event.target.closest("tr");
+          const sampleProductToEdit = {
+            name: row.querySelector(".text-gray-900").textContent,
+            category: row.querySelector(".text-gray-500")
+              ? row.querySelector(".text-gray-500").textContent
+              : "N/A",
+            price: row.querySelectorAll(".text-gray-900")[1]
+              ? parseFloat(
+                  row
+                    .querySelectorAll(".text-gray-900")[1]
+                    .textContent.replace("$", "")
+                )
+              : 0,
+            image: row.querySelector("img").src,
+            description: "A brief description of the product.",
+          };
+          openModal("edit", sampleProductToEdit);
+        });
+      });
+      document.querySelectorAll(".text-red-600").forEach((button) => {
+        button.addEventListener("click", () => {
+          if (confirm("Are you sure you want to delete this product?")) {
+            console.log("Deleting product...");
+          }
+        });
+      });
+      mobileMenuButton.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+      });
+      // Close sidebar when a link is clicked on mobile
+      sidebar.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth < 1024) {
+            // Tailwind's lg breakpoint
+            sidebar.classList.add("-translate-x-full");
+          }
+        });
+      });
+    </script>
+    {% endcomment %}
+    <script>
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      mobileMenuButton.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+      });
+    </script>
+  </body>
+</html>

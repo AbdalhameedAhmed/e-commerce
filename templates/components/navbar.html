@@ -34,7 +34,7 @@
                   {%endif%}
                   ">Contact us</a>
               </li>
-              {%if user%}
+              {%if user.id%}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'productAdmin' %}" style="
                   {% if active_item == 'contact' %}
@@ -42,7 +42,21 @@
                   {%endif%}
                   ">Dashboard</a>
               </li>
+              <li class="nav-item">
+                <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="nav-link">logout</button>
+                  </form>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}" style="
+                  color: #e67e22;
+                  ">Login</a>
+              </li>
+              
              {%endif%}
+
             </ul>
           </div>
           <div class="btn-group ms-auto me-3 order-1 cart position-relative">
