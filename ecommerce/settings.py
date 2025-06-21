@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Home.apps.HomeConfig',
     'Products.apps.ProductsConfig',
-    'Dashboard.apps.DashboardConfig'
+    'Dashboard.apps.DashboardConfig',
+    "Accounts",
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,7 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 LOGIN_REDIRECT_URL = '/products'
 LOGIN_URL = '/login'
+
+AUTH_USER_MODEL = 'Accounts.CustomUser'
